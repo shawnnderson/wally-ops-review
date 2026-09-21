@@ -39,13 +39,13 @@ section.first{border-top:0;padding-top:0}
 
 /* bottom line map */
 .mapwrap{position:relative}
-.map{position:relative;aspect-ratio:2/1;border:3px solid var(--ink);background:var(--page);overflow:hidden}
+.map{position:relative;aspect-ratio:2/1;border:3px solid var(--ink);background:#DCDCD3;overflow:hidden}
 #map-svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-#map-svg .shore{fill:#DCDCD3;stroke:var(--ink);stroke-width:2.5;vector-effect:non-scaling-stroke}
-#map-svg .water{fill:#DCDCD3;stroke:#DCDCD3;stroke-width:1;vector-effect:non-scaling-stroke}
-#map-svg .park{fill:#EBEBE3;stroke:var(--ink);stroke-width:.75;vector-effect:non-scaling-stroke}
+#map-svg .shore{fill:var(--page);stroke:var(--ink);stroke-width:2.5;vector-effect:non-scaling-stroke}
+#map-svg .water{fill:var(--page);stroke:var(--page);stroke-width:1;vector-effect:non-scaling-stroke}
+#map-svg .park{fill:#C9C9BE;stroke:var(--ink);stroke-width:.75;vector-effect:non-scaling-stroke}
 .map-geo span{position:absolute;transform:translate(-50%,-50%) rotate(var(--r));font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#6A6A63;white-space:nowrap;pointer-events:none}
-.map-geo .park{font-size:10px;letter-spacing:.16em}
+.map-geo .park{font-size:10px;letter-spacing:.16em;color:#34342F}
 .map-geo .water{font-style:italic}
 .pin{position:absolute;display:flex;align-items:center;gap:7px;background:none;border:0;padding:0;margin:0;cursor:pointer;font:inherit;color:inherit;transform:translate(-11px,-50%);z-index:2}
 .pin.left{flex-direction:row-reverse;transform:translate(calc(-100% + 11px),-50%)}
@@ -628,19 +628,26 @@ footer{border-top:3px solid var(--ink);padding:18px 0 40px;font-size:13px}
     const m = mapEl.getBoundingClientRect();
     const blocks = [...pins, document.querySelector(".map-hint")].map(n => n.getBoundingClientRect());
     const inside = (x, y, r, pad) => x > r.left - pad && x < r.right + pad && y > r.top - pad && y < r.bottom + pad;
+    const waterPath = document.querySelector("#map-svg .water"), parkPath = document.querySelector("#map-svg .park");
+    const toMap = (x, y) => new DOMPoint(x0 + (x - m.left - mapEl.clientLeft) / k, y0 + (y - m.top - mapEl.clientTop) / k);
+    const onWater = (x, y) => waterPath.isPointInFill(toMap(x, y));
+    const inPark = (x, y) => parkPath.isPointInFill(toMap(x, y));
     const clear = sp => {
       const r = sp.getBoundingClientRect(), cx = (r.left + r.right) / 2, cy = (r.top + r.bottom) / 2;
       const half = sp.offsetWidth / 2, a = parseFloat(sp.style.getPropertyValue("--r")) * Math.PI / 180;
+      const wantWater = sp.classList.contains("water"), wantPark = sp.classList.contains("park");
       for (let i = -4; i <= 4; i++) {
         const x = cx + Math.cos(a) * half * i / 4, y = cy + Math.sin(a) * half * i / 4;
         if (!inside(x, y, m, -8) || blocks.some(b => inside(x, y, b, 6))) return false;
+        if (onWater(x, y) !== wantWater || (wantPark && !inPark(x, y))) return false;
       }
       return true;
     };
     document.querySelectorAll("#map-geo span").forEach(sp => {
-      const ok = JSON.parse(sp.dataset.spots).some(([sx, sy]) => {
+      const ok = JSON.parse(sp.dataset.spots).some(([sx, sy, rot]) => {
         const [x, y] = px(sx, sy);
         sp.style.left = x + "px"; sp.style.top = y + "px";
+        sp.style.setProperty("--r", rot + "deg");
         return clear(sp);
       });
       sp.style.visibility = ok ? "" : "hidden";
