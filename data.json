@@ -1,0 +1,648 @@
+{
+ "text": {
+  "period": "August 3 to 28, 2026",
+  "month": "August 2026",
+  "target_month": "$34,527",
+  "target_week": "$8,631.75",
+  "n_weeks": "4",
+  "t_cur": "60%",
+  "t_perio": "70%",
+  "t_util": "80%",
+  "price_cur": "$185",
+  "price_perio": "$240",
+  "combined_pct": "52.6%",
+  "uws_rev": "$20,305",
+  "uws_pct": "58.8%",
+  "uws_cur": "30%",
+  "uws_cur_frac": "41/137",
+  "uws_perio": "46%",
+  "uws_perio_frac": "53/115",
+  "uws_cur_c": "30%",
+  "uws_cur_c_frac": "41/137",
+  "uws_perio_c": "46%",
+  "uws_perio_c_frac": "53/115",
+  "uws_util": "78.2%",
+  "uws_sched_util": "78.2%",
+  "uws_completed": "793",
+  "uws_chairs": "3",
+  "uws_completion": "80%",
+  "uws_noshow_late": "13.6%",
+  "jc_rev": "$22,115",
+  "jc_pct": "64.1%",
+  "jc_cur": "31%",
+  "jc_cur_frac": "43/138",
+  "jc_perio": "60%",
+  "jc_perio_frac": "59/98",
+  "jc_cur_c": "65%",
+  "jc_cur_c_frac": "43/66",
+  "jc_perio_c": "70%",
+  "jc_perio_c_frac": "59/84",
+  "jc_util": "72.7%",
+  "jc_sched_util": "72.7%",
+  "jc_completed": "732",
+  "jc_chairs": "3",
+  "jc_completion": "74%",
+  "jc_noshow_late": "14.0%",
+  "hy_rev": "$12,085",
+  "hy_pct": "35.0%",
+  "hy_cur": "59%",
+  "hy_cur_frac": "29/49",
+  "hy_perio": "70%",
+  "hy_perio_frac": "28/40",
+  "hy_cur_c": "59%",
+  "hy_cur_c_frac": "29/49",
+  "hy_perio_c": "70%",
+  "hy_perio_c_frac": "28/40",
+  "hy_util": "22.5%",
+  "hy_sched_util": "56.2%",
+  "hy_completed": "307",
+  "hy_chairs": "4",
+  "hy_completion": "87%",
+  "hy_noshow_late": "9.6%",
+  "h_grace_cur": "80%",
+  "h_grace_cur_n": "20",
+  "h_grace_perio": "62%",
+  "h_yuki_cur": "79%",
+  "h_yuki_cur_n": "19",
+  "h_yuki_perio": "73%",
+  "h_renee_cur": "57%",
+  "h_renee_cur_n": "23",
+  "h_renee_perio": "74%",
+  "h_sam_cur": "47%",
+  "h_sam_cur_n": "30",
+  "h_sam_perio": "68%",
+  "uws_hyg_cur_list": "Devon 32%, Ingrid 30%, Priya 28%",
+  "uws_cur_max_cut": "39%",
+  "uws_nf_rate": "38%",
+  "uws_nf_n": "34",
+  "uws_nb_rate": "27%",
+  "uws_nb_n": "103",
+  "uws_at_target": "$34,527",
+  "uws_at_target_pct": "100%",
+  "uws_declined_cur": "96",
+  "uws_declined_perio": "62",
+  "uws_recover_rate": "30%",
+  "uws_recover": "$10k",
+  "shadow": "8 to 10",
+  "xt_who": "Ingrid",
+  "xt_gap": "$5.5k",
+  "xt_mentor": "Yuki",
+  "xt_mentor_cur": "79%",
+  "xt_day": "Wednesday",
+  "xt_miles": "1.8",
+  "shadow_by": "Yuki",
+  "shadow_by_cur": "79%",
+  "shadow_day": "Tuesday",
+  "shadow_day_recs": "13",
+  "shadow_day_min": "10",
+  "jc_ns": "72",
+  "jc_ns_weeks": "August 10 and August 24",
+  "jc_ns_weeks_n": "2",
+  "jc_stockout_cur_rev": "$0",
+  "jc_restock_units": "20",
+  "jc_restock_dates": "August 3 and August 17",
+  "jc_so_units": "27 to 28",
+  "jc_recovery": "$11,010",
+  "jc_recovery_round": "$11k",
+  "jc_recovery_pct": "96%",
+  "jc_lost_min": "2,415",
+  "jc_util_recovered": "79%",
+  "jc_reorder": "45",
+  "jc_reorder_weeks": "2",
+  "hy_hyg_days": "32",
+  "hy_hyg_per_day": "1.6",
+  "hy_shift_min": "600",
+  "hy_full_from": "8 am",
+  "hy_full_to": "1 pm",
+  "hy_partial_hour": "2 pm",
+  "hy_partial_fill": "51%",
+  "hy_last_end": "2:45 pm",
+  "hy_needed": "3.2",
+  "hy_declined_members": "29",
+  "hy_hires_word": "two",
+  "hy_with_hires": "3.6",
+  "hy_rev_per_min": "$1.12",
+  "fc_uws": "80 to 90%",
+  "fc_uws_rev": "$27.4k to $31.0k",
+  "fc_uws_chg": "+35% to +53%",
+  "fc_jc": "95 to 100%",
+  "fc_jc_rev": "$33.1k to $34.5k",
+  "fc_jc_chg": "+50% to +56%",
+  "fc_hy": "50 to 65%",
+  "fc_hy_rev": "$17.2k to $23.2k",
+  "fc_hy_chg": "+42% to +92%",
+  "fc_uws_low_share": "half",
+  "fc_uws_high_share": "three-quarters",
+  "fc_uws_low_cur": "45%",
+  "fc_uws_low_perio": "58%",
+  "fc_uws_high_cur": "52%",
+  "fc_uws_high_perio": "64%",
+  "fc_hy_low_util": "80%",
+  "fc_hy_high_share": "86%",
+  "fc_yuki_days": "5",
+  "fc_round": "5"
+ },
+ "targets": {
+  "cur": 0.6,
+  "perio": 0.7,
+  "util": 0.8,
+  "month": 34527.0,
+  "week": 8631.75
+ },
+ "studios": {
+  "uws": {
+   "revenue": 20305,
+   "pct_target": 0.58809047991427,
+   "cur": {
+    "done": 41,
+    "rec": 137,
+    "rate": 0.29927007299270075
+   },
+   "perio": {
+    "done": 53,
+    "rec": 115,
+    "rate": 0.4608695652173913
+   },
+   "cur_completed": {
+    "done": 41,
+    "rec": 137,
+    "rate": 0.29927007299270075
+   },
+   "perio_completed": {
+    "done": 53,
+    "rec": 115,
+    "rate": 0.4608695652173913
+   },
+   "chair_util": 0.7816666666666666,
+   "sched_util": 0.7816666666666666,
+   "occupied": 28140,
+   "chair_minutes": 36000,
+   "chairs": 3,
+   "hyg_days": 60,
+   "hyg_per_day": 3.0,
+   "shift_min": 600,
+   "completed": 793,
+   "visits": 990,
+   "completion": 0.8010101010101011,
+   "noshow_late": 0.13636363636363635,
+   "rec_eq_diag": true,
+   "fill": [
+    {
+     "hour": 8,
+     "label": "8 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 9,
+     "label": "9 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 10,
+     "label": "10 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 11,
+     "label": "11 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 12,
+     "label": "12 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 13,
+     "label": "1 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 14,
+     "label": "2 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 15,
+     "label": "3 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 16,
+     "label": "4 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 17,
+     "label": "5 pm",
+     "fill": 0.8166666666666667
+    }
+   ]
+  },
+  "jc": {
+   "revenue": 22115,
+   "pct_target": 0.6405132215367684,
+   "cur": {
+    "done": 43,
+    "rec": 138,
+    "rate": 0.3115942028985507
+   },
+   "perio": {
+    "done": 59,
+    "rec": 98,
+    "rate": 0.6020408163265306
+   },
+   "cur_completed": {
+    "done": 43,
+    "rec": 66,
+    "rate": 0.6515151515151515
+   },
+   "perio_completed": {
+    "done": 59,
+    "rec": 84,
+    "rate": 0.7023809523809523
+   },
+   "chair_util": 0.7270833333333333,
+   "sched_util": 0.7270833333333333,
+   "occupied": 26175,
+   "chair_minutes": 36000,
+   "chairs": 3,
+   "hyg_days": 60,
+   "hyg_per_day": 3.0,
+   "shift_min": 600,
+   "completed": 732,
+   "visits": 988,
+   "completion": 0.7408906882591093,
+   "noshow_late": 0.1396761133603239,
+   "rec_eq_diag": true,
+   "fill": [
+    {
+     "hour": 8,
+     "label": "8 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 9,
+     "label": "9 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 10,
+     "label": "10 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 11,
+     "label": "11 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 12,
+     "label": "12 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 13,
+     "label": "1 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 14,
+     "label": "2 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 15,
+     "label": "3 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 16,
+     "label": "4 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 17,
+     "label": "5 pm",
+     "fill": 0.7583333333333333
+    }
+   ]
+  },
+  "hy": {
+   "revenue": 12085,
+   "pct_target": 0.3500159295623715,
+   "cur": {
+    "done": 29,
+    "rec": 49,
+    "rate": 0.5918367346938775
+   },
+   "perio": {
+    "done": 28,
+    "rec": 40,
+    "rate": 0.7
+   },
+   "cur_completed": {
+    "done": 29,
+    "rec": 49,
+    "rate": 0.5918367346938775
+   },
+   "perio_completed": {
+    "done": 28,
+    "rec": 40,
+    "rate": 0.7
+   },
+   "chair_util": 0.225,
+   "sched_util": 0.5625,
+   "occupied": 10800,
+   "chair_minutes": 48000,
+   "chairs": 4,
+   "hyg_days": 32,
+   "hyg_per_day": 1.6,
+   "shift_min": 600,
+   "completed": 307,
+   "visits": 354,
+   "completion": 0.867231638418079,
+   "noshow_late": 0.096045197740113,
+   "rec_eq_diag": true,
+   "fill": [
+    {
+     "hour": 8,
+     "label": "8 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 9,
+     "label": "9 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 10,
+     "label": "10 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 11,
+     "label": "11 am",
+     "fill": 1.0
+    },
+    {
+     "hour": 12,
+     "label": "12 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 13,
+     "label": "1 pm",
+     "fill": 1.0
+    },
+    {
+     "hour": 14,
+     "label": "2 pm",
+     "fill": 0.5078125
+    },
+    {
+     "hour": 15,
+     "label": "3 pm",
+     "fill": 0.0
+    },
+    {
+     "hour": 16,
+     "label": "4 pm",
+     "fill": 0.0
+    },
+    {
+     "hour": 17,
+     "label": "5 pm",
+     "fill": 0.0
+    }
+   ]
+  }
+ },
+ "names": {
+  "uws": "UWS",
+  "jc": "Jersey City",
+  "hy": "Hudson Yards"
+ },
+ "hygienists": [
+  {
+   "name": "Devon",
+   "studio": "UWS",
+   "cur": {
+    "done": 12,
+    "rec": 38,
+    "rate": 0.3157894736842105
+   },
+   "perio": {
+    "done": 18,
+    "rec": 38,
+    "rate": 0.47368421052631576
+   }
+  },
+  {
+   "name": "Ingrid",
+   "studio": "UWS",
+   "cur": {
+    "done": 16,
+    "rec": 53,
+    "rate": 0.3018867924528302
+   },
+   "perio": {
+    "done": 13,
+    "rec": 34,
+    "rate": 0.38235294117647056
+   }
+  },
+  {
+   "name": "Priya",
+   "studio": "UWS",
+   "cur": {
+    "done": 13,
+    "rec": 46,
+    "rate": 0.2826086956521739
+   },
+   "perio": {
+    "done": 22,
+    "rec": 43,
+    "rate": 0.5116279069767442
+   }
+  },
+  {
+   "name": "Grace",
+   "studio": "Jersey City",
+   "cur": {
+    "done": 16,
+    "rec": 20,
+    "rate": 0.8
+   },
+   "perio": {
+    "done": 15,
+    "rec": 24,
+    "rate": 0.625
+   }
+  },
+  {
+   "name": "Malik",
+   "studio": "Jersey City",
+   "cur": {
+    "done": 14,
+    "rec": 23,
+    "rate": 0.6086956521739131
+   },
+   "perio": {
+    "done": 21,
+    "rec": 29,
+    "rate": 0.7241379310344828
+   }
+  },
+  {
+   "name": "Renee",
+   "studio": "Jersey City",
+   "cur": {
+    "done": 13,
+    "rec": 23,
+    "rate": 0.5652173913043478
+   },
+   "perio": {
+    "done": 23,
+    "rec": 31,
+    "rate": 0.7419354838709677
+   }
+  },
+  {
+   "name": "Sam",
+   "studio": "Hudson Yards",
+   "cur": {
+    "done": 14,
+    "rec": 30,
+    "rate": 0.4666666666666667
+   },
+   "perio": {
+    "done": 17,
+    "rec": 25,
+    "rate": 0.68
+   }
+  },
+  {
+   "name": "Yuki",
+   "studio": "Hudson Yards",
+   "cur": {
+    "done": 15,
+    "rec": 19,
+    "rate": 0.7894736842105263
+   },
+   "perio": {
+    "done": 11,
+    "rec": 15,
+    "rate": 0.7333333333333333
+   }
+  }
+ ],
+ "jc_weeks": [
+  {
+   "week": "2026-08-03",
+   "label": "August 3",
+   "cur": 4070,
+   "perio": 3600,
+   "total": 7670,
+   "pct": 0.8885799519216845,
+   "stockout": false,
+   "cancelled": 0
+  },
+  {
+   "week": "2026-08-10",
+   "label": "August 10",
+   "cur": 0,
+   "perio": 2640,
+   "total": 2640,
+   "pct": 0.30584759753236596,
+   "stockout": true,
+   "cancelled": 35
+  },
+  {
+   "week": "2026-08-17",
+   "label": "August 17",
+   "cur": 3885,
+   "perio": 4800,
+   "total": 8685,
+   "pct": 1.0061690850638632,
+   "stockout": false,
+   "cancelled": 0
+  },
+  {
+   "week": "2026-08-24",
+   "label": "August 24",
+   "cur": 0,
+   "perio": 3120,
+   "total": 3120,
+   "pct": 0.3614562516291598,
+   "stockout": true,
+   "cancelled": 37
+  }
+ ],
+ "forecast": {
+  "uws": {
+   "low": 0.7940452399571349,
+   "high": 0.8970226199785675,
+   "text": "80 to 90%",
+   "revenue": [
+    27415.999999999996,
+    30971.5
+   ],
+   "revenue_text": "$27.4k to $31.0k",
+   "change_text": "+35% to +53%"
+  },
+  "jc": {
+   "low": 0.9593940973730704,
+   "high": 1.2782749732093723,
+   "text": "95 to 100%",
+   "revenue": [
+    33125.0,
+    34527.0
+   ],
+   "revenue_text": "$33.1k to $34.5k",
+   "change_text": "+50% to +56%"
+  },
+  "hy": {
+   "low": 0.49780043315537287,
+   "high": 0.6722995045615779,
+   "text": "50 to 65%",
+   "revenue": [
+    17187.55555555556,
+    23212.4849939976
+   ],
+   "revenue_text": "$17.2k to $23.2k",
+   "change_text": "+42% to +92%"
+  }
+ },
+ "checks": {
+  "rec_eq_diag_all": true,
+  "occupied_reconciles": true,
+  "uws_all_hyg_below_target": true,
+  "uws_every_cut_below_target": true,
+  "shadow_day_covers_target_visits": true,
+  "jc_ns_all_on_stockout_days": true,
+  "hy_nothing_after_last_end": true,
+  "others_full_until_last_hour": true
+ },
+ "assumptions": {
+  "shadow_visits": [
+   8,
+   10
+  ],
+  "shadow_candidates": [
+   "Malik",
+   "Yuki"
+  ],
+  "declined_recovery": 0.3,
+  "reorder_weeks": 2,
+  "uws_gap_closed": {
+   "low": 0.5,
+   "high": 0.75
+  },
+  "hy_low_util": 0.8,
+  "yuki_days_high": 5,
+  "hy_new_hires": 2,
+  "new_hire_days": 5,
+  "forecast_round": 5
+ }
+}

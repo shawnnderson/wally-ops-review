@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Three Studios Review</title>
+<meta name="description" content="Diagnosis of UWS, Jersey City and Hudson Yards treatment revenue, and a 30-day plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#F5CBCA; --mint:#D3F2D9; --ink:#000; --page:#F7F7F4;
+  --muted:#4B4B47; --hair:#D4D4CC; --grey:#8C8C85;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--ink);font:16px/1.5 "Archivo",system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+h1,h2,h3,.big{font-family:"Anton","Impact",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.02}
+h1{font-size:clamp(32px,5.6vw,58px);margin:10px 0 14px;text-wrap:balance}
+h2{font-size:clamp(32px,5.4vw,52px);margin:6px 0 14px}
+h3{font-size:22px;margin:0 0 10px}
+p{margin:0 0 12px;max-width:68ch}
+b,strong{font-weight:700}
+a{color:inherit;text-decoration-thickness:2px;text-underline-offset:3px}
+.kicker{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin:0}
+.chip{display:inline-block;border:2px solid var(--ink);padding:1px 8px;margin-left:6px;background:var(--pink)}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+header.top{padding:28px 0 32px}
+.bar-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;border-bottom:3px solid var(--ink);padding:14px 0 10px}
+
+section{border-top:3px solid var(--ink);padding:28px 0 40px}
+section.first{border-top:0;padding-top:0}
+
+/* bottom line map */
+.mapwrap{position:relative}
+.map{position:relative;aspect-ratio:2/1;border:3px solid var(--ink);background:var(--page);overflow:hidden}
+#map-svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+#map-svg .shore{fill:#DCDCD3;stroke:var(--ink);stroke-width:2.5;vector-effect:non-scaling-stroke}
+#map-svg .water{fill:#DCDCD3;stroke:#DCDCD3;stroke-width:1;vector-effect:non-scaling-stroke}
+#map-svg .park{fill:#EBEBE3;stroke:var(--ink);stroke-width:.75;vector-effect:non-scaling-stroke}
+.map-geo span{position:absolute;transform:translate(-50%,-50%) rotate(var(--r));font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#6A6A63;white-space:nowrap;pointer-events:none}
+.map-geo .park{font-size:10px;letter-spacing:.16em}
+.map-geo .water{font-style:italic}
+.pin{position:absolute;display:flex;align-items:center;gap:7px;background:none;border:0;padding:0;margin:0;cursor:pointer;font:inherit;color:inherit;transform:translate(-11px,-50%);z-index:2}
+.pin.left{flex-direction:row-reverse;transform:translate(calc(-100% + 11px),-50%)}
+.pin-dot{width:22px;height:22px;background:var(--pink);border:3px solid var(--ink);flex:none}
+.pin-tag{background:var(--ink);color:var(--page);padding:4px 9px 3px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;border:2px solid var(--ink)}
+.pin-pct{font-family:"Anton","Impact",sans-serif;font-weight:400;font-size:15px;letter-spacing:.02em;margin-left:6px}
+.pin:hover .pin-tag,.pin[aria-expanded=true] .pin-tag{background:var(--pink);color:var(--ink)}
+.pin[aria-expanded=true] .pin-dot{background:var(--ink)}
+.pin:focus{outline:none}
+.pin:focus-visible .pin-tag{outline:3px solid var(--ink);outline-offset:2px}
+.map-hint{position:absolute;left:10px;top:10px;margin:0;background:var(--page);border:2px solid var(--ink);padding:4px 8px;z-index:1}
+.map-hint .tap{display:none}
+@media (hover:none){.map-hint .hover{display:none}.map-hint .tap{display:inline}}
+.map-src{margin:6px 0 0;font-size:11px;color:var(--muted);text-align:right}
+.card{background:var(--pink);padding:18px 18px 20px;border:3px solid var(--ink)}
+.map-cards .card{position:absolute;width:310px;z-index:5}
+.card[hidden]{display:none}
+.card .big{font-size:clamp(52px,6vw,68px);line-height:.95;margin:8px 0 2px}
+.card .of{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+.card h3{font-size:24px;margin:0 0 6px}
+.card p{font-size:15px;margin:0}
+
+/* headline table */
+.tablewrap{margin-top:24px}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+table.head{border:3px solid var(--ink)}
+table.head th,table.head td{border:1px solid var(--ink);padding:9px 12px;text-align:right;vertical-align:top}
+table.head thead th{font-size:13px;text-transform:uppercase;letter-spacing:.06em;background:var(--ink);color:var(--page);border-color:var(--ink)}
+table.head th[scope=row]{text-align:left;font-weight:500}
+table.head td .v{font-weight:700;font-size:17px}
+table.head td .n{display:block;font-size:12px;color:var(--muted)}
+table.head td .alt{display:block;font-size:12px;margin-top:3px}
+td.bad{background:var(--pink)} td.ok{background:var(--mint)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;margin-top:10px}
+.sw{display:inline-block;width:14px;height:14px;border:2px solid var(--ink);vertical-align:-2px;margin-right:6px}
+.sw.pink{background:var(--pink)} .sw.mint{background:var(--mint)} .sw.plain{background:var(--page)}
+.sw.black{background:var(--ink)} .sw.white{background:#fff}
+.sw.line{border:0;height:3px;width:18px;background:var(--ink);vertical-align:4px}
+.sw.line.grey{background:var(--grey);height:2px}
+.sw.dash{border:0;height:0;width:18px;border-top:2px dashed var(--ink);vertical-align:4px}
+
+/* studio sections */
+.facts{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:1fr 1fr;border:3px solid var(--ink)}
+.facts li{padding:14px 16px;border-left:3px solid var(--ink);font-size:15px}
+.facts li:first-child{border-left:0}
+.facts li.ok{background:var(--mint)} .facts li.bad{background:var(--pink)}
+figure{margin:20px 0 0;border:3px solid var(--ink);background:#fff;padding:16px 16px 12px}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.chart{width:100%}
+.panels{display:grid;grid-template-columns:1fr;gap:18px}
+.panels.two{grid-template-columns:1fr 1fr;gap:24px}
+svg{display:block;overflow:visible;font-family:"Archivo",system-ui,sans-serif}
+svg .grid{stroke:var(--hair);stroke-width:1}
+svg .axis{stroke:var(--ink);stroke-width:1.5}
+svg .tick{font-size:11px;fill:var(--muted)}
+svg .ct{font-size:14px;font-weight:700}
+svg .gh{font-size:11px;font-weight:800;letter-spacing:.08em;fill:var(--muted)}
+svg .rl{font-size:13px} svg .rl.em{font-weight:800}
+svg .vl{font-size:12px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+svg .target{stroke:var(--ink);stroke-width:2;stroke-dasharray:6 4}
+svg .tl{font-size:11px;font-weight:800;paint-order:stroke;stroke:#fff;stroke-width:4px}
+svg .hbar{stroke:var(--ink);stroke-width:1.5}
+svg .hbar.bad{fill:var(--pink)} svg .hbar.ok{fill:var(--mint)}
+svg .band{fill:var(--pink)}
+svg .bl{font-size:11px;font-weight:800;letter-spacing:.06em}
+svg .seg-cur{fill:var(--ink)}
+svg .seg-perio{fill:#fff;stroke:var(--ink);stroke-width:1.5}
+svg .line-hy{stroke:var(--ink);stroke-width:3;fill:none}
+svg .line-o{stroke:var(--grey);stroke-width:2;fill:none}
+svg .gap{fill:var(--pink)}
+svg .el{font-size:12px;font-weight:700}
+svg .el.o{fill:var(--muted);font-weight:500}
+svg .hit{fill:transparent}
+svg [data-tip]:focus{outline:none}
+svg [data-tip]:focus-visible{stroke:var(--ink);stroke-width:3}
+details.tv{margin-top:8px;font-size:13px}
+details.tv summary{cursor:pointer;font-weight:700}
+details.tv table{margin-top:8px;font-size:13px}
+details.tv th,details.tv td{border-bottom:1px solid var(--hair);padding:4px 8px;text-align:right}
+details.tv th:first-child,details.tv td:first-child{text-align:left}
+
+/* plan */
+.plan{display:grid;grid-template-columns:repeat(3,1fr);border:3px solid var(--ink)}
+.plan > div{padding:16px 18px;border-left:3px solid var(--ink)}
+.plan > div:first-child{border-left:0}
+.plan h3{font-size:24px}
+.plan ul{margin:0;padding:0;list-style:none}
+.plan li{padding:9px 0;border-top:1px solid var(--ink);font-size:15px}
+.plan li b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.expect{display:grid;grid-template-columns:repeat(3,1fr);border:3px solid var(--ink);border-top:0}
+.expect > div{padding:16px 18px;border-left:3px solid var(--ink);background:var(--mint)}
+.expect > div.bad{background:var(--pink)}
+.expect > div:first-child{border-left:0}
+.expect .big{font-size:clamp(36px,4.6vw,48px);margin:4px 0 0}
+.expect .of{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.fc-nums{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;margin:0 0 12px;padding:8px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-size:14px}
+.fc-nums dt{font-weight:500}
+.fc-nums dd{margin:0;font-weight:800;text-align:right;font-variant-numeric:tabular-nums}
+.expect p{font-size:13px;margin:0}
+.expect-head{border:3px solid var(--ink);border-top:0;padding:10px 18px;background:var(--ink);color:var(--page)}
+
+/* caveats */
+ol.cav{margin:0;padding:0;list-style:none;counter-reset:c;border:3px solid var(--ink)}
+ol.cav li{counter-increment:c;display:grid;grid-template-columns:56px 1fr;border-top:1px solid var(--ink)}
+ol.cav li:first-child{border-top:0}
+ol.cav li::before{content:counter(c);font-family:"Anton",sans-serif;font-size:30px;background:var(--pink);border-right:3px solid var(--ink);display:flex;align-items:center;justify-content:center}
+ol.cav li p{padding:14px 16px;margin:0;font-size:15px}
+footer{border-top:3px solid var(--ink);padding:18px 0 40px;font-size:13px}
+
+#tip{position:fixed;z-index:20;pointer-events:none;background:var(--ink);color:var(--page);font-size:13px;line-height:1.35;padding:7px 9px;max-width:260px}
+#err{display:none;border:3px solid var(--ink);background:var(--pink);padding:16px;margin:24px 0}
+
+@media (max-width:640px){
+  .map{aspect-ratio:1/1}
+  .map-cards .card{position:static;width:auto;margin-top:10px}
+  .pin-tag{display:flex;flex-direction:column;font-size:10px;line-height:1.15;padding:4px 7px 3px}
+  .pin-pct{font-size:15px;margin-left:0}
+  .map-geo span{font-size:10px;letter-spacing:.18em}
+}
+@media (max-width:760px){
+  .plan,.expect{grid-template-columns:1fr}
+  .plan > div,.expect > div{border-left:0;border-top:3px solid var(--ink)}
+  .plan > div:first-child,.expect > div:first-child{border-top:0}
+  .facts{grid-template-columns:1fr}
+  .facts li{border-left:0;border-top:3px solid var(--ink)}
+  .facts li:first-child{border-top:0}
+  ol.cav li{grid-template-columns:40px 1fr}
+  ol.cav li::before{font-size:24px}
+  figure{padding:12px 10px 10px}
+  table.head th,table.head td{padding:7px 6px}
+  table.head td .v{font-size:15px}
+  table.head thead th{font-size:11px;letter-spacing:.02em}
+  table.head th[scope=row]{font-size:13px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar-top kicker"><span>Operations review</span><span data-t="period"></span></div>
+
+  <header class="top">
+    <p class="kicker">UWS, Jersey City, Hudson Yards</p>
+    <h1>August diagnosis and 30-day plan</h1>
+  </header>
+
+  <div id="err">This page reads <code>data.json</code>. Open it from a web server, not the file system.</div>
+
+  <section class="first" id="bottom-line" aria-labelledby="bl-h">
+    <h2 id="bl-h" class="kicker" style="font-family:inherit;font-size:12px;margin-bottom:12px">Bottom line</h2>
+    <div class="mapwrap" id="mapwrap">
+      <div class="map" id="map">
+        <svg id="map-svg" aria-hidden="true" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="map-geo" id="map-geo" aria-hidden="true"></div>
+        <p class="map-hint kicker"><span class="hover">Hover a studio to see its problem</span><span class="tap">Tap a studio to see its problem</span></p>
+        <button type="button" class="pin" data-k="uws" data-side="left" aria-controls="card-uws" aria-expanded="false"><span class="pin-dot" aria-hidden="true"></span><span class="pin-tag">UWS<span class="pin-pct" data-t="uws_pct"></span></span></button>
+        <button type="button" class="pin" data-k="jc" data-side="left" aria-controls="card-jc" aria-expanded="false"><span class="pin-dot" aria-hidden="true"></span><span class="pin-tag">Jersey City<span class="pin-pct" data-t="jc_pct"></span></span></button>
+        <button type="button" class="pin" data-k="hy" data-side="right" aria-controls="card-hy" aria-expanded="false"><span class="pin-dot" aria-hidden="true"></span><span class="pin-tag">Hudson Yards<span class="pin-pct" data-t="hy_pct"></span></span></button>
+      </div>
+      <p class="map-src" id="map-src"></p>
+      <div class="map-cards" aria-live="polite">
+      <div class="card" id="card-uws" hidden>
+        <p class="kicker">UWS</p>
+        <div class="big" data-t="uws_pct"></div>
+        <div class="of">of target</div>
+        <h3>Members are saying no</h3>
+        <p>Curodont conversion <b data-t="uws_cur"></b> against a <span data-t="t_cur"></span> target, periodontal therapy <b data-t="uws_perio"></b> against <span data-t="t_perio"></span>. Every hygienist, every week.</p>
+      </div>
+      <div class="card" id="card-jc" hidden>
+        <p class="kicker">Jersey City</p>
+        <div class="big" data-t="jc_pct"></div>
+        <div class="of">of target</div>
+        <h3>Curodont ran out</h3>
+        <p>Out <b data-t="jc_ns_weeks_n"></b> weeks of <span data-t="n_weeks"></span>. <b data-t="jc_ns"></b> visits cancelled outright; <b data-t="jc_stockout_cur_rev"></b> Curodont revenue those weeks.</p>
+      </div>
+      <div class="card" id="card-hy" hidden>
+        <p class="kicker">Hudson Yards</p>
+        <div class="big" data-t="hy_pct"></div>
+        <div class="of">of target</div>
+        <h3>Not enough chair time sold</h3>
+        <p>Nothing booked after <b data-t="hy_last_end"></b>. <b data-t="hy_hyg_per_day"></b> hygienists a day for <span data-t="hy_chairs"></span> chairs. Conversion is on target.</p>
+      </div>
+      </div>
+    </div>
+
+    <div class="tablewrap">
+      <table class="head">
+        <caption class="kicker" style="text-align:left;padding-bottom:8px"><span data-t="month"></span> by studio</caption>
+        <thead><tr><th scope="col" style="text-align:left">Metric</th><th scope="col">UWS</th><th scope="col">Jersey City</th><th scope="col">Hudson Yards</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Treatment revenue</th>
+            <td><span class="v" data-t="uws_rev"></span></td><td><span class="v" data-t="jc_rev"></span></td><td><span class="v" data-t="hy_rev"></span></td></tr>
+          <tr><th scope="row">% of target</th>
+            <td data-s="pct:uws"><span class="v" data-t="uws_pct"></span></td><td data-s="pct:jc"><span class="v" data-t="jc_pct"></span></td><td data-s="pct:hy"><span class="v" data-t="hy_pct"></span></td></tr>
+          <tr><th scope="row">Curodont conversion <span class="muted small">(target <span data-t="t_cur"></span>)</span></th>
+            <td data-s="cur:uws"><span class="v" data-t="uws_cur"></span><span class="n" data-t="uws_cur_frac"></span></td>
+            <td data-s="cur:jc"><span class="v" data-t="jc_cur"></span><span class="n" data-t="jc_cur_frac"></span><span class="alt"><b data-t="jc_cur_c"></b> on completed visits (<span data-t="jc_cur_c_frac"></span>)</span></td>
+            <td data-s="cur:hy"><span class="v" data-t="hy_cur"></span><span class="n" data-t="hy_cur_frac"></span></td></tr>
+          <tr><th scope="row">Periodontal therapy conversion <span class="muted small">(target <span data-t="t_perio"></span>)</span></th>
+            <td data-s="perio:uws"><span class="v" data-t="uws_perio"></span><span class="n" data-t="uws_perio_frac"></span></td>
+            <td data-s="perio:jc"><span class="v" data-t="jc_perio"></span><span class="n" data-t="jc_perio_frac"></span><span class="alt"><b data-t="jc_perio_c"></b> on completed visits (<span data-t="jc_perio_c_frac"></span>)</span></td>
+            <td data-s="perio:hy"><span class="v" data-t="hy_perio"></span><span class="n" data-t="hy_perio_frac"></span></td></tr>
+          <tr><th scope="row">Chair utilization <span class="muted small">(target <span data-t="t_util"></span>)</span></th>
+            <td data-s="util:uws"><span class="v" data-t="uws_util"></span></td><td data-s="util:jc"><span class="v" data-t="jc_util"></span></td><td data-s="util:hy"><span class="v" data-t="hy_util"></span></td></tr>
+          <tr><th scope="row">Completed visits</th>
+            <td><span class="v" data-t="uws_completed"></span></td><td><span class="v" data-t="jc_completed"></span></td><td><span class="v" data-t="hy_completed"></span></td></tr>
+        </tbody>
+      </table>
+      <div class="legend"><span><i class="sw pink"></i>Below target</span><span><i class="sw mint"></i>At or above target</span><span><i class="sw plain"></i>Within a point of target, or no target</span></div>
+    </div>
+  </section>
+
+  <section id="uws" aria-labelledby="uws-h">
+    <p class="kicker">UWS<span class="chip"><span data-t="uws_pct"></span> of target</span></p>
+    <h2 id="uws-h">Members are saying no</h2>
+    <p>Every diagnosis got a recommendation; members declined it. Curodont conversion is low at all three hygienists (<span data-t="uws_hyg_cur_list"></span>) and on every weekday, time slot and week, never above <b data-t="uws_cur_max_cut"></b>. This is studio-wide, not one person. The data can't say why; Week 1 shadowing will.</p>
+    <figure>
+      <div class="chart" id="chart-hyg"></div>
+      <div class="legend"><span><i class="sw pink"></i>Below target</span><span><i class="sw mint"></i>At or above target</span><span><i class="sw dash"></i>Wally target</span></div>
+      <figcaption>Conversion by hygienist, all three studios, on completed visits. At UWS and Hudson Yards this equals the all-visit rate; Jersey City's all-visit rate is lower because of stockout cancellations.</figcaption>
+      <details class="tv" id="tv-hyg"><summary>Show as table</summary></details>
+    </figure>
+    <ul class="facts">
+      <li>Curodont conversion was higher when the hygienist's next slot was free: <b data-t="uws_nf_rate"></b> of <span data-t="uws_nf_n"></span> visits, against <b data-t="uws_nb_rate"></b> of <span data-t="uws_nb_n"></span> when it was booked. Time pressure is a lead to test, not a finding.</li>
+      <li class="ok">At target conversion, August's UWS recommendations were worth <b data-t="uws_at_target"></b>, <b data-t="uws_at_target_pct"></b> of target. UWS needs no extra volume, only yeses.</li>
+    </ul>
+  </section>
+
+  <section id="jc" aria-labelledby="jc-h">
+    <p class="kicker">Jersey City<span class="chip"><span data-t="jc_pct"></span> of target</span></p>
+    <h2 id="jc-h">Curodont out <span data-t="jc_ns_weeks_n"></span> weeks of <span data-t="n_weeks"></span></h2>
+    <p><b data-t="jc_ns"></b> visits were cancelled for no supply, all in the weeks of <span data-t="jc_ns_weeks"></span>. Jersey City restocked <span data-t="jc_restock_units"></span> units only on <span data-t="jc_restock_dates"></span>; UWS and Hudson Yards restocked every week. Visits were cancelled outright instead of doing the cleaning and rebooking the treatment.</p>
+    <figure>
+      <div class="chart" id="chart-jc"></div>
+      <div class="legend"><span><i class="sw black"></i>Curodont</span><span><i class="sw white"></i>Periodontal therapy</span><span><i class="sw pink"></i>Curodont out of stock</span><span><i class="sw dash"></i>Weekly target</span></div>
+      <figcaption>Jersey City treatment revenue by week, labeled by the Monday each week starts.</figcaption>
+      <details class="tv" id="tv-jc"><summary>Show as table</summary></details>
+    </figure>
+    <ul class="facts">
+      <li class="ok">Had those <span data-t="jc_ns"></span> visits gone ahead at Jersey City's completed-visit rates (<span data-t="jc_cur_c"></span> Curodont, <span data-t="jc_perio_c"></span> periodontal therapy): <b data-t="jc_recovery"></b> more, <b data-t="jc_recovery_pct"></b> of target, and <span data-t="jc_lost_min"></span> chair minutes back (utilization <span data-t="jc_util_recovered"></span>).</li>
+      <li>On visits that happened, conversion is healthy: Curodont <b data-t="jc_cur_c"></b>, periodontal therapy <b data-t="jc_perio_c"></b>. The all-visit rates (<span data-t="jc_cur"></span>, <span data-t="jc_perio"></span>) count recommendations on cancelled visits.</li>
+    </ul>
+  </section>
+
+  <section id="hy" aria-labelledby="hy-h">
+    <p class="kicker">Hudson Yards<span class="chip"><span data-t="hy_pct"></span> of target</span></p>
+    <h2 id="hy-h">Not enough chair time sold</h2>
+    <p><span data-t="hy_chairs"></span> chairs, <b data-t="hy_hyg_per_day"></b> hygienists a day (<span data-t="hy_hyg_days"></span> hygienist-days). Every hour offered is fully booked from <span data-t="hy_full_from"></span> through the <span data-t="hy_full_to"></span> hour, the <span data-t="hy_partial_hour"></span> hour is <b data-t="hy_partial_fill"></b> booked, and nothing of any status is booked after <b data-t="hy_last_end"></b>. Either afternoons aren't bookable or hygienists work shorter shifts than the file shows.</p>
+    <figure>
+      <div class="chart" id="chart-fill"></div>
+      <div class="legend"><span><i class="sw line"></i>Hudson Yards</span><span><i class="sw line grey"></i>UWS, Jersey City</span><span><i class="sw pink"></i>Hudson Yards hours with nothing booked</span></div>
+      <figcaption>Booked fill by clock hour: minutes of appointments of any status in the hour ÷ hygienist minutes on shift. UWS and Jersey City are full nearly all day; their utilization gaps are cancellations and no-shows, not empty slots.</figcaption>
+      <details class="tv" id="tv-fill"><summary>Show as table</summary></details>
+    </figure>
+    <ul class="facts">
+      <li class="ok">Conversion is on target (Curodont <b data-t="hy_cur"></b>, periodontal therapy <b data-t="hy_perio"></b>) and completion is the best of the three (<b data-t="hy_completion"></b>; no-shows plus late cancellations <span data-t="hy_noshow_late"></span>, the lowest).</li>
+      <li>To hit target at current revenue per occupied minute (<span data-t="hy_rev_per_min"></span>), Hudson Yards needs about <b data-t="hy_needed"></b> hygienists a day on full-day books at <span data-t="t_util"></span> utilization.</li>
+    </ul>
+  </section>
+
+  <section id="plan" aria-labelledby="plan-h">
+    <h2 id="plan-h">30-day plan</h2>
+    <div class="plan">
+      <div>
+        <p class="kicker">Week 1</p>
+        <h3>Verify</h3>
+        <ul>
+          <li><b>Jersey City</b>Physical count and expiry check of Curodont.</li>
+          <li><b>Hudson Yards</b>Diagnose what's blocking late-afternoon bookings (nothing booked after <span data-t="hy_last_end"></span>): check the booking template and actual shift times.</li>
+          <li><b>UWS</b>Shadow <span data-t="shadow"></span> visits with recommendations. <span data-t="shadow_by"></span> (<span data-t="shadow_by_cur"></span> Curodont) shadows on a <span data-t="shadow_day"></span>, a regular day off, as a full paid day. UWS averages <span data-t="shadow_day_recs"></span> visits with a recommendation on <span data-t="shadow_day"></span>s (low of <span data-t="shadow_day_min"></span>), enough for one day.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="kicker">Weeks 1 to 2</p>
+        <h3>Recover</h3>
+        <ul>
+          <li><b>Jersey City</b>SMS blast to rebook the <span data-t="jc_ns"></span> cancelled members (about <span data-t="jc_recovery_round"></span>).</li>
+          <li><b>UWS</b>Use learnings from Week 1 to work the <span data-t="uws_declined_cur"></span> declined Curodont and <span data-t="uws_declined_perio"></span> declined periodontal therapy members. <span data-t="uws_recover_rate"></span> converting is about <span data-t="uws_recover"></span>.</li>
+          <li><b>Hudson Yards</b>Open afternoons, then SMS blast members that afternoon slots are open, starting with the <span data-t="hy_declined_members"></span> who declined treatment in August.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="kicker">Weeks 2 to 4</p>
+        <h3>Fix</h3>
+        <ul>
+          <li><b>Jersey City</b>Weekly restock, reorder point about <span data-t="jc_reorder"></span> units. Never cancel a cleaning for missing Curodont: clean, then rebook the treatment.</li>
+          <li><b>UWS</b>Treatment conversation modeled on the top converters (Grace, Yuki, Renee), same-day treatment by default, conversion reviewed weekly by hygienist.</li>
+          <li><b>Hudson Yards</b>Start hiring <span data-t="hy_hires_word"></span> full-time hygienists now: with Sam and Yuki that is <span data-t="hy_with_hires"></span> a day, above the <span data-t="hy_needed"></span> needed to hit target. Track fill by hour as afternoons open. Ask Yuki about <span data-t="fc_yuki_days"></span> days. Pair Sam (<span data-t="h_sam_cur"></span> Curodont) with Yuki (<span data-t="h_yuki_cur"></span>).</li>
+          <li><b>UWS and Hudson Yards</b><span data-t="xt_who"></span> works <span data-t="xt_day"></span>s at Hudson Yards beside <span data-t="xt_mentor"></span>. <span data-t="xt_who"></span> has the largest gap to target at UWS (about <span data-t="xt_gap"></span> a month); <span data-t="xt_mentor"></span> converts <span data-t="xt_mentor_cur"></span> of Curodont. An easy move: both studios are on Manhattan's West Side, on the same avenue (Columbus Avenue becomes Ninth Avenue), <span data-t="xt_miles"></span> miles apart. <span data-t="xt_day"></span> costs UWS the least of the days <span data-t="xt_mentor"></span> works.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="expect-head kicker">Expected by Day 30</div>
+    <div class="expect">
+      <div data-fc="uws">
+        <p class="kicker">UWS</p>
+        <div class="big" data-t="fc_uws"></div>
+        <div class="of">of monthly target</div>
+        <dl class="fc-nums"><dt>Revenue</dt><dd data-t="fc_uws_rev"></dd><dt>Change from August</dt><dd data-t="fc_uws_chg"></dd></dl>
+        <p>Low: <span data-t="fc_uws_low_share"></span> the conversion gap to target closed (<span data-t="fc_uws_low_cur"></span> Curodont, <span data-t="fc_uws_low_perio"></span> periodontal therapy). High: <span data-t="fc_uws_high_share"></span> closed (<span data-t="fc_uws_high_cur"></span> Curodont, <span data-t="fc_uws_high_perio"></span> periodontal therapy). Both on August volume.</p>
+      </div>
+      <div data-fc="jc">
+        <p class="kicker">Jersey City</p>
+        <div class="big" data-t="fc_jc"></div>
+        <div class="of">of monthly target</div>
+        <dl class="fc-nums"><dt>Revenue</dt><dd data-t="fc_jc_rev"></dd><dt>Change from August</dt><dd data-t="fc_jc_chg"></dd></dl>
+        <p>Low: no stockouts, completed-visit conversion. High: plus August's cancelled members rebooked.</p>
+      </div>
+      <div data-fc="hy">
+        <p class="kicker">Hudson Yards</p>
+        <div class="big" data-t="fc_hy"></div>
+        <div class="of">of monthly target</div>
+        <dl class="fc-nums"><dt>Revenue</dt><dd data-t="fc_hy_rev"></dd><dt>Change from August</dt><dd data-t="fc_hy_chg"></dd></dl>
+        <p>Low: afternoons open, current staff, <span data-t="fc_hy_low_util"></span> utilization. High: afternoons fill like mornings (<span data-t="fc_hy_high_share"></span> of booked time occupied) and Yuki works <span data-t="fc_yuki_days"></span> days.</p>
+      </div>
+    </div>
+    <div class="legend"><span><i class="sw pink"></i>Below target</span><span><i class="sw mint"></i>At or above target</span><span class="muted">Colored by the high case. Percentages rounded to the nearest <span data-t="fc_round"></span> points; percentages and revenue capped at target.</span></div>
+  </section>
+
+  <section id="caveats" aria-labelledby="cav-h">
+    <h2 id="cav-h">Caveats</h2>
+    <ol class="cav">
+      <li><p>Hudson Yards' <b data-t="hy_last_end"></b> cliff has two explanations with different fixes: afternoons are not bookable (a scheduling setting), or hygienists work shorter shifts than the <span data-t="hy_shift_min"></span> minutes the file shows. This page does not claim paid idle hours. Week 1 checks both.</p></li>
+      <li><p>Jersey City's supply log shows <b data-t="jc_so_units"></b> units on hand on every stockout day, which contradicts the stockout. Flagged, not explained. The Week 1 physical count and expiry check should settle it.</p></li>
+      <li><p>UWS causes are hypotheses until shadowing. The data shows members declining, not why.</p></li>
+    </ol>
+  </section>
+
+
+  <footer class="muted">Operations review of UWS, Jersey City and Hudson Yards, <span data-t="period"></span>. Internal; not for distribution.</footer>
+</div>
+
+<div id="tip" hidden></div>
+
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  const pct = v => Math.round(v * 100) + "%";
+  const usd = v => "$" + Math.round(v).toLocaleString("en-US");
+
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs || {}) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function text(parent, x, y, str, attrs) {
+    const t = el("text", Object.assign({ x, y }, attrs || {}), parent);
+    t.textContent = str;
+    return t;
+  }
+  function svgRoot(w, h, label) {
+    return el("svg", { width: w, height: h, viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": label });
+  }
+  function tableView(host, headers, rows) {
+    const t = document.createElement("table");
+    t.innerHTML = "<thead><tr>" + headers.map(h => `<th scope="col">${h}</th>`).join("") + "</tr></thead><tbody>" +
+      rows.map(r => "<tr>" + r.map((c, i) => i === 0 ? `<th scope="row">${c}</th>` : `<td>${c}</td>`).join("") + "</tr>").join("") + "</tbody>";
+    host.querySelectorAll("table").forEach(n => n.remove());
+    host.appendChild(t);
+  }
+
+  // ---------- chart: conversion by hygienist ----------
+  function chartHyg(root, D) {
+    root.innerHTML = "";
+    const W = root.clientWidth, two = W >= 620;
+    const pw = two ? (W - 24) / 2 : W;
+    const wrap = document.createElement("div");
+    wrap.className = two ? "panels two" : "panels";
+    root.appendChild(wrap);
+    const rows = [];
+    let last = null;
+    D.hygienists.forEach(h => {
+      if (h.studio !== last) { rows.push({ head: h.studio }); last = h.studio; }
+      rows.push(h);
+    });
+    [["cur", "Curodont", D.targets.cur], ["perio", "Periodontal therapy", D.targets.perio]].forEach(([k, label, target]) => {
+      const rowH = 26, headH = 22, top = 44, left = 60, right = 40;
+      const H = top + rows.reduce((a, r) => a + (r.head ? headH : rowH), 0) + 22;
+      const svg = svgRoot(pw, H, `${label} conversion by hygienist against the ${pct(target)} target`);
+      const x = v => left + v * (pw - left - right);
+      text(svg, 0, 14, label, { class: "ct" });
+      [0, 0.25, 0.5, 0.75, 1].forEach(g => {
+        el("line", { x1: x(g), x2: x(g), y1: top - 4, y2: H - 20, class: "grid" }, svg);
+        text(svg, x(g), H - 5, pct(g), { class: "tick", "text-anchor": "middle" });
+      });
+      let y = top;
+      const labels = [];
+      rows.forEach(r => {
+        if (r.head) { text(svg, 0, y + 15, r.head.toUpperCase(), { class: "gh" }); y += headH; return; }
+        const c = r[k];
+        text(svg, left - 8, y + rowH / 2 + 4, r.name, { class: "rl" + (r.studio === "UWS" ? " em" : ""), "text-anchor": "end" });
+        el("rect", {
+          x: x(0), y: y + 5, width: Math.max(x(c.rate) - x(0), 1), height: rowH - 10,
+          class: "hbar " + (c.rate >= target ? "ok" : "bad"), tabindex: 0,
+          "data-tip": `${r.name}, ${r.studio}: ${label} conversion ${pct(c.rate)} (${c.done} of ${c.rec} recommendations). Target ${pct(target)}.`
+        }, svg);
+        labels.push([x(c.rate) + 6, y + rowH / 2 + 4, pct(c.rate)]);
+        y += rowH;
+      });
+      // target line above the bars, value labels (with halo) above the line
+      el("line", { x1: x(target), x2: x(target), y1: top - 14, y2: y + 2, class: "target" }, svg);
+      text(svg, x(target), top - 18, "Target " + pct(target), { class: "tl", "text-anchor": "middle" });
+      labels.forEach(([lx, ly, s]) => text(svg, lx, ly, s, { class: "vl" }));
+      const cell = document.createElement("div");
+      cell.appendChild(svg);
+      wrap.appendChild(cell);
+    });
+    tableView(document.getElementById("tv-hyg"), ["Hygienist", "Studio", "Curodont", "Periodontal therapy"],
+      D.hygienists.map(h => [h.name, h.studio, `${pct(h.cur.rate)} (${h.cur.done}/${h.cur.rec})`, `${pct(h.perio.rate)} (${h.perio.done}/${h.perio.rec})`]));
+  }
+
+  // ---------- chart: Jersey City weekly revenue ----------
+  function chartJC(root, D) {
+    root.innerHTML = "";
+    const W = root.clientWidth, H = 300, top = 34, bottom = 30, left = 56, right = 4;
+    const weeks = D.jc_weeks, tgt = D.targets.week;
+    const ymax = Math.ceil(Math.max(tgt, ...weeks.map(w => w.total)) / 2000) * 2000;
+    const y = v => top + (1 - v / ymax) * (H - top - bottom);
+    const band = (W - left - right) / weeks.length;
+    const bw = Math.min(72, band * 0.52);
+    const svg = svgRoot(W, H, "Jersey City weekly treatment revenue against the weekly target; Curodont revenue is zero in the two stockout weeks");
+    weeks.forEach((w, i) => {
+      if (!w.stockout) return;
+      el("rect", { x: left + band * i + 3, y: top - 30, width: band - 6, height: y(0) - top + 30, class: "band" }, svg);
+      if (band >= 110) text(svg, left + band * (i + 0.5), top - 16, "OUT OF STOCK", { class: "bl", "text-anchor": "middle" });
+      else {
+        text(svg, left + band * (i + 0.5), top - 18, "OUT OF", { class: "bl", "text-anchor": "middle" });
+        text(svg, left + band * (i + 0.5), top - 6, "STOCK", { class: "bl", "text-anchor": "middle" });
+      }
+    });
+    for (let v = 0; v <= ymax; v += 2000) {
+      el("line", { x1: left, x2: W - right, y1: y(v), y2: y(v), class: v === 0 ? "axis" : "grid" }, svg);
+      text(svg, left - 6, y(v) + 4, usd(v), { class: "tick", "text-anchor": "end" });
+    }
+    weeks.forEach((w, i) => {
+      const cx = left + band * (i + 0.5), x0 = cx - bw / 2;
+      el("rect", { x: x0, y: y(w.perio), width: bw, height: y(0) - y(w.perio), class: "seg-perio" }, svg);
+      if (w.cur > 0) el("rect", { x: x0, y: y(w.perio + w.cur), width: bw, height: Math.max(y(w.perio) - y(w.perio + w.cur) - 2, 1), class: "seg-cur" }, svg);
+      el("rect", {
+        x: left + band * i, y: top - 30, width: band, height: y(0) - top + 30, class: "hit", tabindex: 0,
+        "data-tip": `Week of ${w.label}: ${usd(w.total)} (${pct(w.pct)} of weekly target). Curodont ${usd(w.cur)}, periodontal therapy ${usd(w.perio)}.` +
+          (w.stockout ? ` ${w.cancelled} visits cancelled for no supply.` : "")
+      }, svg);
+      text(svg, cx, y(w.total) - 7, usd(w.total), { class: "vl", "text-anchor": "middle" });
+      text(svg, cx, H - 10, w.label, { class: "tick", "text-anchor": "middle" });
+    });
+    el("line", { x1: left, x2: W - right, y1: y(tgt), y2: y(tgt), class: "target" }, svg);
+    text(svg, left + 6, y(tgt) - 6, "Target " + usd(tgt), { class: "tl" });
+    root.appendChild(svg);
+    tableView(document.getElementById("tv-jc"), ["Week of", "Curodont", "Periodontal therapy", "Total", "% of target", "Visits cancelled for no supply"],
+      weeks.map(w => [w.label, usd(w.cur), usd(w.perio), usd(w.total), pct(w.pct), w.cancelled]));
+  }
+
+  // ---------- chart: booked fill by hour ----------
+  function chartFill(root, D) {
+    root.innerHTML = "";
+    const W = root.clientWidth, narrow = W < 520;
+    const H = 280, top = 16, bottom = 28, left = 40, right = narrow ? 64 : 108;
+    const S = D.studios, hy = S.hy.fill, n = hy.length;
+    const x = i => left + (i + 0.5) * (W - left - right) / n;
+    const y = v => top + (1 - v) * (H - top - bottom);
+    const svg = svgRoot(W, H, "Booked fill by hour: Hudson Yards is fully booked until early afternoon and empty after; UWS and Jersey City are full all day");
+    [0, 0.5, 1].forEach(g => {
+      el("line", { x1: left, x2: W - right, y1: y(g), y2: y(g), class: g === 0 ? "axis" : "grid" }, svg);
+      text(svg, left - 6, y(g) + 4, pct(g), { class: "tick", "text-anchor": "end" });
+    });
+    const pts = hy.map((f, i) => [x(i), y(Math.min(f.fill, 1))]);
+    const area = [[x(0), y(1)], [x(n - 1), y(1)], ...pts.slice().reverse()];
+    el("polygon", { points: area.map(p => p.join(",")).join(" "), class: "gap" }, svg);
+    const cliff = hy.findIndex(f => f.fill === 0);
+    if (cliff > 0) {
+      // inside the pink area when it is wide enough, otherwise in the white space left of the drop
+      const inside = x(n - 1) - x(cliff) >= 130;
+      const ax = inside ? (x(cliff) + x(n - 1)) / 2 : x(cliff - 1) - 10;
+      const ay = inside ? y(0.62) : y(0.3);
+      const anchor = inside ? "middle" : "end";
+      text(svg, ax, ay, "Nothing booked", { class: "bl", "text-anchor": anchor });
+      text(svg, ax, ay + 15, "after " + D.text.hy_last_end, { class: "bl", "text-anchor": anchor });
+    }
+    const line = (fill, cls) => el("polyline", { points: fill.map((f, i) => [x(i), y(Math.min(f.fill, 1))].join(",")).join(" "), class: cls }, svg);
+    line(S.uws.fill, "line-o");
+    line(S.jc.fill, "line-o");
+    [S.uws.fill, S.jc.fill].forEach(f => f.forEach((d, i) => el("circle", { cx: x(i), cy: y(Math.min(d.fill, 1)), r: 3, fill: "var(--grey)" }, svg)));
+    line(hy, "line-hy");
+    hy.forEach((d, i) => el("rect", { x: x(i) - 4.5, y: y(Math.min(d.fill, 1)) - 4.5, width: 9, height: 9, fill: "#000", stroke: "#fff", "stroke-width": 2 }, svg));
+    hy.forEach((d, i) => {
+      if (!narrow || i % 2 === 0) text(svg, x(i), H - 8, d.label, { class: "tick", "text-anchor": "middle" });
+      el("rect", {
+        x: x(i) - (W - left - right) / n / 2, y: top, width: (W - left - right) / n, height: H - top - bottom, class: "hit", tabindex: 0,
+        "data-tip": `${d.label} hour booked fill: Hudson Yards ${pct(d.fill)}, UWS ${pct(S.uws.fill[i].fill)}, Jersey City ${pct(S.jc.fill[i].fill)}`
+      }, svg);
+    });
+    // end labels, nudged apart
+    const ends = [["Hudson Yards", hy[n - 1].fill, ""], ["UWS", S.uws.fill[n - 1].fill, " o"], ["Jersey City", S.jc.fill[n - 1].fill, " o"]]
+      .map(([l, v, c]) => ({ l, c, y: y(Math.min(v, 1)) + 4 })).sort((a, b) => a.y - b.y);
+    const lineH = 14, gap = narrow ? 2 * lineH + 2 : lineH;
+    for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < gap) ends[i].y = ends[i - 1].y + gap;
+    ends.forEach(e => {
+      const words = narrow ? e.l.split(" ") : [e.l];
+      const t = text(svg, W - right + 8, e.y - (words.length - 1) * lineH / 2, "", { class: "el" + e.c });
+      words.forEach((w, j) => { const ts = el("tspan", { x: W - right + 8, dy: j ? lineH : 0 }, t); ts.textContent = w; });
+    });
+    root.appendChild(svg);
+    tableView(document.getElementById("tv-fill"), ["Hour", "Hudson Yards", "UWS", "Jersey City"],
+      hy.map((d, i) => [d.label, pct(d.fill), pct(S.uws.fill[i].fill), pct(S.jc.fill[i].fill)]));
+  }
+
+  // ---------- tooltip ----------
+  const tip = document.getElementById("tip");
+  function place(cx, cy) {
+    const r = tip.getBoundingClientRect();
+    let lx = cx + 14, ly = cy + 14;
+    if (lx + r.width > innerWidth - 8) lx = cx - r.width - 14;
+    if (ly + r.height > innerHeight - 8) ly = cy - r.height - 14;
+    tip.style.left = Math.max(8, lx) + "px";
+    tip.style.top = Math.max(8, ly) + "px";
+  }
+  function show(t, cx, cy) { tip.textContent = t.getAttribute("data-tip"); tip.hidden = false; place(cx, cy); }
+  document.addEventListener("pointermove", e => {
+    const t = e.target.closest && e.target.closest("[data-tip]");
+    if (!t) { tip.hidden = true; return; }
+    show(t, e.clientX, e.clientY);
+  });
+  document.addEventListener("focusin", e => {
+    const t = e.target.closest && e.target.closest("[data-tip]");
+    if (!t) { tip.hidden = true; return; }
+    const r = t.getBoundingClientRect();
+    show(t, r.left + r.width / 2, r.top);
+  });
+  document.addEventListener("focusout", () => { tip.hidden = true; });
+  addEventListener("scroll", () => { tip.hidden = true; }, { passive: true });
+
+  // ---------- bottom line map ----------
+  const FOCUS = { x0: 240, y0: 150, x1: 780, y1: 620 }; // map units that must stay in view (studios plus labels)
+  let view = null, active = null, pinned = null;
+  const mapEl = document.getElementById("map");
+  const wrapEl = document.getElementById("mapwrap");
+
+  function drawMap(M) {
+    const svg = document.getElementById("map-svg");
+    el("path", { class: "park", d: M.park }, svg);
+    el("path", { class: "shore", d: M.water, "fill-rule": "evenodd" }, svg);
+    el("path", { class: "water", d: M.water, "fill-rule": "evenodd" }, svg);
+    const geo = document.getElementById("map-geo");
+    M.labels.forEach(l => {
+      const sp = document.createElement("span");
+      sp.className = l.kind;
+      sp.textContent = l.text;
+      sp.dataset.spots = JSON.stringify(l.spots);
+      sp.style.setProperty("--r", l.rotate + "deg");
+      geo.appendChild(sp);
+    });
+    document.getElementById("map-src").textContent = M.source;
+  }
+
+  function layoutMap(M) {
+    const W = mapEl.clientWidth, H = mapEl.clientHeight;
+    if (W < 100 || H < 100) return;
+    let vw = FOCUS.x1 - FOCUS.x0, vh = FOCUS.y1 - FOCUS.y0;
+    if (vw / vh < W / H) vw = vh * W / H; else vh = vw * H / W;
+    const clampTo = (c, span, max) => span >= max ? (max - span) / 2 : Math.min(Math.max(c - span / 2, 0), max - span);
+    const x0 = clampTo((FOCUS.x0 + FOCUS.x1) / 2, vw, M.width);
+    const y0 = clampTo((FOCUS.y0 + FOCUS.y1) / 2, vh, M.height);
+    document.getElementById("map-svg").setAttribute("viewBox", `${x0} ${y0} ${vw} ${vh}`);
+    const k = W / vw;
+    view = { x0, y0, k, W, H };
+    const px = (x, y) => [(x - x0) * k, (y - y0) * k];
+    const pins = [...document.querySelectorAll(".pin")];
+    pins.forEach(pin => {
+      const P = M.studios[pin.dataset.k];
+      const [x, y] = px(P.x, P.y);
+      pin.style.left = x + "px"; pin.style.top = y + "px";
+      pin.dataset.px = x; pin.dataset.py = y;
+      // preferred tag side, flipped if it would run off the map
+      pin.classList.toggle("left", pin.dataset.side === "left");
+      const r = pin.getBoundingClientRect(), m = mapEl.getBoundingClientRect();
+      if (r.left < m.left + 4 || r.right > m.right - 4) pin.classList.toggle("left");
+    });
+    // Hide a geography label if its (rotated) line leaves the map or runs under a pin or the hint.
+    const m = mapEl.getBoundingClientRect();
+    const blocks = [...pins, document.querySelector(".map-hint")].map(n => n.getBoundingClientRect());
+    const inside = (x, y, r, pad) => x > r.left - pad && x < r.right + pad && y > r.top - pad && y < r.bottom + pad;
+    const clear = sp => {
+      const r = sp.getBoundingClientRect(), cx = (r.left + r.right) / 2, cy = (r.top + r.bottom) / 2;
+      const half = sp.offsetWidth / 2, a = parseFloat(sp.style.getPropertyValue("--r")) * Math.PI / 180;
+      for (let i = -4; i <= 4; i++) {
+        const x = cx + Math.cos(a) * half * i / 4, y = cy + Math.sin(a) * half * i / 4;
+        if (!inside(x, y, m, -8) || blocks.some(b => inside(x, y, b, 6))) return false;
+      }
+      return true;
+    };
+    document.querySelectorAll("#map-geo span").forEach(sp => {
+      const ok = JSON.parse(sp.dataset.spots).some(([sx, sy]) => {
+        const [x, y] = px(sx, sy);
+        sp.style.left = x + "px"; sp.style.top = y + "px";
+        return clear(sp);
+      });
+      sp.style.visibility = ok ? "" : "hidden";
+      if (ok) { // later labels must also clear this one
+        const r = sp.getBoundingClientRect(), cx = (r.left + r.right) / 2, cy = (r.top + r.bottom) / 2;
+        const half = sp.offsetWidth / 2, a = parseFloat(sp.style.getPropertyValue("--r")) * Math.PI / 180;
+        for (let i = -4; i <= 4; i++) {
+          const x = cx + Math.cos(a) * half * i / 4, y = cy + Math.sin(a) * half * i / 4;
+          blocks.push({ left: x - 2, right: x + 2, top: y - 2, bottom: y + 2 });
+        }
+      }
+    });
+    if (active) placeCard(active);
+  }
+
+  function placeCard(k) {
+    const card = document.getElementById("card-" + k);
+    if (!view || getComputedStyle(card).position !== "absolute") { card.style.left = card.style.top = ""; return; }
+    const pin = document.querySelector(`.pin[data-k="${k}"]`);
+    const x = +pin.dataset.px, y = +pin.dataset.py, b = mapEl.clientLeft;
+    const cw = card.offsetWidth, ch = card.offsetHeight;
+    // open on the side away from the pin's tag, so the tag stays readable
+    const tagLeft = pin.classList.contains("left");
+    let left = tagLeft ? x + 24 : x - 24 - cw;
+    if (left + cw > view.W - 8) left = x - 24 - cw;
+    if (left < 8) left = x + 24;
+    const top = Math.min(Math.max(y - ch / 2, 8), view.H - ch - 8);
+    card.style.left = b + left + "px";
+    card.style.top = b + top + "px";
+  }
+
+  function show(k) {
+    if (active === k) return;
+    active = k;
+    document.querySelectorAll(".pin").forEach(p => p.setAttribute("aria-expanded", String(p.dataset.k === k)));
+    document.querySelectorAll(".map-cards .card").forEach(c => { c.hidden = c.id !== "card-" + k; });
+    if (k) placeCard(k);
+  }
+
+  function wireMap() {
+    document.querySelectorAll(".pin").forEach(pin => {
+      const k = pin.dataset.k;
+      pin.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") show(k); });
+      pin.addEventListener("pointerleave", e => { if (e.pointerType === "mouse" && pinned !== k) show(pinned); });
+      pin.addEventListener("focus", () => show(k));
+      pin.addEventListener("blur", () => { if (pinned !== k) show(pinned); });
+      pin.addEventListener("click", () => { pinned = pinned === k ? null : k; show(pinned); });
+    });
+    document.addEventListener("click", e => { if (!wrapEl.contains(e.target)) { pinned = null; show(null); } });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") { pinned = null; show(null); } });
+  }
+
+  // ---------- bind ----------
+  function bind(D) {
+    const missing = [];
+    document.querySelectorAll("[data-t]").forEach(n => {
+      const v = D.text[n.dataset.t];
+      if (v === undefined) missing.push(n.dataset.t);
+      n.textContent = v === undefined ? "??" : v;
+    });
+    if (missing.length) console.error("data.json missing keys:", missing);
+    const val = { pct: s => s.pct_target, cur: s => s.cur.rate, perio: s => s.perio.rate, util: s => s.chair_util };
+    const tgt = { pct: 1, cur: D.targets.cur, perio: D.targets.perio, util: D.targets.util };
+    document.querySelectorAll("[data-s]").forEach(n => {
+      const [m, k] = n.dataset.s.split(":");
+      const v = val[m](D.studios[k]), t = tgt[m];
+      n.className = v >= t - 1e-9 ? "ok" : v >= t - 0.01 ? "" : "bad";
+    });
+    document.querySelectorAll("[data-fc]").forEach(n => {
+      n.className = D.forecast[n.dataset.fc].high >= 1 ? "" : "bad";
+    });
+  }
+
+  let drawnW = 0;
+  function draw(D) {
+    const w = document.getElementById("chart-hyg").clientWidth;
+    if (w < 200 || w === drawnW) return; // not laid out yet, or nothing changed
+    drawnW = w;
+    chartHyg(document.getElementById("chart-hyg"), D);
+    chartJC(document.getElementById("chart-jc"), D);
+    chartFill(document.getElementById("chart-fill"), D);
+  }
+
+  const getJSON = u => fetch(u, { cache: "no-cache" }).then(r => r.json());
+  Promise.all([getJSON("data.json"), getJSON("map.json")])
+    .then(([D, M]) => {
+      bind(D);
+      drawMap(M);
+      wireMap();
+      layoutMap(M);
+      let mapTimer;
+      new ResizeObserver(() => { clearTimeout(mapTimer); mapTimer = setTimeout(() => layoutMap(M), 60); }).observe(mapEl);
+      draw(D);
+      let timer;
+      new ResizeObserver(() => {
+        clearTimeout(timer);
+        timer = setTimeout(() => draw(D), 100);
+      }).observe(document.getElementById("chart-hyg"));
+      if (document.fonts) document.fonts.ready.then(() => { drawnW = 0; draw(D); layoutMap(M); });
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById("err").style.display = "block";
+    });
+})();
+</script>
+</body>
+</html>
